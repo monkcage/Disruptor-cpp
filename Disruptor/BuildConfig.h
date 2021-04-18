@@ -1,9 +1,9 @@
 #pragma once
 
-#include <boost/config.hpp>
+//#include <boost/config.hpp>
 
 // detect current compiler
-#if defined(BOOST_MSVC)
+#if defined(_WIN32) | defined(_WIN64)
 # define DISRUPTOR_VC_COMPILER
 #elif defined(__GNUC__)
 # define DISRUPTOR_GNUC_COMPILER
@@ -80,4 +80,9 @@
 # define UNREFERENCED_PARAMETER(P)          (P)
 # define DBG_UNREFERENCED_PARAMETER(P)      (P)
 # define DBG_UNREFERENCED_LOCAL_VARIABLE(V) (V)
+#endif
+
+// detect C++17
+#if ((defined(_MSVC_LANG) && _MSVC_LANG >= 201703L) || __cplusplus >= 201703L)
+  # define DISRUPTOR_CPP_17
 #endif

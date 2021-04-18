@@ -3,7 +3,7 @@
 
 #include <regex>
 #include <vector>
-#include <boost/algorithm/string.hpp>
+//#include <boost/algorithm/string.hpp>
 
 #if defined(__GNUC__)
 # include <cxxabi.h>
@@ -42,7 +42,8 @@ namespace Disruptor
 
     std::string TypeInfo::dotNetify(const std::string& typeName)
     {
-        return boost::algorithm::replace_all_copy(typeName, "::", ".");
+        //return boost::algorithm::replace_all_copy(typeName, "::", ".");
+		return "";
     }
 
     std::string TypeInfo::unqualifyName(const std::string& fullyQualifiedName)
@@ -51,10 +52,10 @@ namespace Disruptor
             return std::string();
 
         std::vector< std::string > nameParts;
-        boost::split(nameParts, fullyQualifiedName, boost::is_any_of("."));
+        //boost::split(nameParts, fullyQualifiedName, boost::is_any_of("."));
 
-        if (nameParts.empty())
-            return std::string();
+        //if (nameParts.empty())
+        //    return std::string();
 
         return nameParts[nameParts.size() - 1];
     }

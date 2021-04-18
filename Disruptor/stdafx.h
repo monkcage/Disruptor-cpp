@@ -5,7 +5,7 @@
 
 #pragma once
 
-#include <boost/config.hpp>
+//#include <boost/config.hpp>
 
 #if _MSC_VER // only on Windows
 

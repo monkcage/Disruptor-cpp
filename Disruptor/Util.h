@@ -42,6 +42,12 @@ namespace Util
      */ 
     std::int32_t log2(std::int32_t i);
 
+#if defined(_WIN32) | defined(__WIN32)
+#ifdef max
+#undef max
+#endif
+#endif
+
     /**
      * Get the minimum sequence from an array of Sequences.
      *

@@ -8,6 +8,11 @@
 #include "BuildConfig.h"
 #include "ClockConfig.h"
 
+#if defined(_WIN32) | defined(__WIN32)
+#ifdef max
+#undef max
+#endif
+#endif
 
 namespace Disruptor
 {
